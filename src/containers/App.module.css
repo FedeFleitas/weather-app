@@ -1,0 +1,36 @@
+.app {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+}
+.bkg {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/lofoten-winter-33-northern-lights.jpg");
+  background-color: #77777736;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  filter: blur(5px);
+}
+
+
+.container {
+  width: 70vw;
+  height: 70vh;
+  margin: 15vh 15vw;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr minmax(12rem, 20vh);
+}
+
+.container {
+  background-image: url("../img/lofoten-winter-33-northern-lights.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  border-radius: 1.5rem;
+}

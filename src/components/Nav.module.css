@@ -1,0 +1,23 @@
+#logoHenry {
+  margin-right: 20px;
+}
+bg-dark{
+  background: color #db0000 !important;;
+  height: fit-content;
+  border-radius: inherit;
+}
+Nav{
+  height: fit-content;
+  border-radius: inherit;
+}
+#weather{
+  margin-left: 3rem;
+}
+Link{
+  color: #ffffff;
+  text-decoration: none;
+}
+.about{
+  color: #ffffff;
+  text-decoration: none;
+}

@@ -1,0 +1,29 @@
+.card {
+  margin: 20px;
+  width: 18rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgb(187 187 187 / 36%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  box-shadow: 7px 9px 20px 13px #12121212;
+}
+
+.card-title {
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#closeIcon {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+.card-body {
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+}
