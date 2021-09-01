@@ -9,6 +9,7 @@ export default function SearchBar({ onSearch }) {
       <form className={styles.searchBar} onSubmit={(e) => {
         e.preventDefault();
         onSearch(city);
+        setCity('')
       }}>
         <input
           className={styles.input}

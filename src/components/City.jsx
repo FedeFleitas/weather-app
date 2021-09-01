@@ -1,18 +1,20 @@
 import React from "react";
+import styles from './City.module.css';
 
-export default function City({city}) {
+export default function City({ city }) {
     return (
-        <div className="city">
-                <div className="container">
-                    <h2>{city.name}</h2>
-                    <div className="info">
-                        <div>Temperatura: {city.temp} ºC</div>
-                        <div>Clima: {city.weather}</div>
-                        <div>Viento: {city.wind} km/h</div>
-                        <div>Cantidad de nubes: {city.clouds}</div>
-                        <div>Latitud: {city.latitud}º</div>
-                        <div>Longitud: {city.longitud}º</div>
-                    </div>
+        <div className={styles.city}>
+            <div className={styles.container}>
+                {city === undefined && <h2>Loading...</h2>}
+                <h1>{city.name}</h1>
+                <div className={styles.info}>
+                    <h2>Temperature: {city.temp} ºC</h2>
+                    <h2>Weather: {city.weather}</h2>
+                    <h2>Wind: {city.wind} km/h</h2>
+                    <h2>Clouds: {city.clouds}</h2>
+                    <h2>Lat: {city.latitud}º</h2>
+                    <h2>Long: {city.longitud}º</h2>
+                </div>
             </div>
         </div>
     )

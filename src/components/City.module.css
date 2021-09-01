@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap');
+.city{
+    margin-top: -10rem;
+    background-color: #ffffff79;
+    border-radius:  0px 0px 1.5rem 1.5rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    margin-top: -130px;
+}
+
+h2, h1{
+    padding: 0.3rem;
+    text-align: center;
+}
+h1{
+    margin-top: 5px;
+    font-family: 'Jost', sans-serif;
+    font-size: 2rem;
+}
+h2{
+    font-size: 1rem;
+}

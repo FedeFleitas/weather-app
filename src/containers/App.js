@@ -17,29 +17,34 @@ function App() {
     setCities(oldCities => oldCities.filter(c => c.id !== id));
   }
   function onSearch(city) {
-    //Llamado a la API del clima
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
-      .then(r => r.json())
-      .then((recurso) => {
-        if (recurso.main !== undefined) {
-          const city = {
-            min: Math.round(recurso.main.temp_min - 273.15),
-            max: Math.round(recurso.main.temp_max - 273.15),
-            img: recurso.weather[0].icon,
-            id: recurso.id,
-            wind: recurso.wind.speed,
-            temp: recurso.main.temp,
-            name: recurso.name,
-            weather: recurso.weather[0].main,
-            clouds: recurso.clouds.all,
-            latitud: recurso.coord.lat,
-            longitud: recurso.coord.lon
-          };
-          setCities(oldCities => [...oldCities, city]);
-        } else {
-          swal("Oops!", "Try another city", "error");
-        }
-      });
+    if (cities.length > 2) {
+      swal("Oops!", "You can only see three cities at a time. Delete one to continue.", "info");
+    } else {    
+
+      //Llamado a la API del clima
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+        .then(r => r.json())
+        .then((recurso) => {
+          if (recurso.main !== undefined) {
+            const city = {
+              min: Math.round(recurso.main.temp_min - 273.15),
+              max: Math.round(recurso.main.temp_max - 273.15),
+              img: recurso.weather[0].icon,
+              id: recurso.id,
+              wind: recurso.wind.speed,
+              temp: Math.round(recurso.main.temp - 273.15),
+              name: recurso.name,
+              weather: recurso.weather[0].main,
+              clouds: recurso.clouds.all,
+              latitud: recurso.coord.lat,
+              longitud: recurso.coord.lon
+            };
+            setCities(oldCities => [...oldCities, city]);
+          } else {
+            swal("Oops, city not found!", "Try another city", "info");
+          }
+        });
+    }
   }
   function onFilter(cityId) {
     let city = cities.filter(c => c.id === parseInt(cityId));
@@ -54,14 +59,14 @@ function App() {
     <div className="App">
       <div className={styles.bkg}></div>
       <div className={styles.app}>
-        <div className={styles.container}>
-          <Router>
+        <Router>
+          <div className={styles.container}>
             <Route path='/' render={() => <Nav onSearch={onSearch} />} />
-            <Route exact path='/' render={() => <Cards cities={cities} onClose={onClose} />} />
             <Route exact path='/city/:cityId' render={({ match }) => <City city={onFilter(match.params.cityId)} />} />
             <Route exact path='/about' component={About} />
-          </Router>
-        </div>
+            <Route exact path='/' render={() => <Cards cities={cities} onClose={onClose} />} />
+          </div>
+        </Router>
       </div>
     </div>
 
